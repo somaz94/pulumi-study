@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-09-12T14:07:59.723816088+09:00",
+            "magic": "f7e78335a73b6584d4a30dcb74dbbcb4a83203946d15dc55fe9360f1e457dcff",
+            "version": "v3.81.0"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:R6KPEWelPJ8=:v1:btItjEkWZilpY2qv:p8JDyGNI0X9CO3HfpFV8yAknz11MJQ=="
+            }
+        }
+    }
+}

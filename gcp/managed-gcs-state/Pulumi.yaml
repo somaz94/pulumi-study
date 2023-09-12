@@ -1,0 +1,6 @@
+name: managed-gcs-state
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Pulumi state is managed by GCS

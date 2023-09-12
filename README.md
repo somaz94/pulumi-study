@@ -17,3 +17,4 @@ brew install pulumi/tap/pulumi
 - [Pulumi Install](https://www.pulumi.com/docs/install/)
 - [Pulumi get-started](https://www.pulumi.com/docs/clouds/gcp/get-started/)
 - [Pulumi Github](https://github.com/pulumi)
+- [Pulumi CLI](https://www.pulumi.com/docs/cli/)
