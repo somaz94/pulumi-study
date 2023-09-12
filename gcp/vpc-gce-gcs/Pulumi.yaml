@@ -1,0 +1,6 @@
+name: vpc-gce-gcs
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A vpc and gce and gcs-backend Test

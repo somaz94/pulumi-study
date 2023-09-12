@@ -1,0 +1,107 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2023-09-12T15:14:37.929005675+09:00",
+            "magic": "f7e78335a73b6584d4a30dcb74dbbcb4a83203946d15dc55fe9360f1e457dcff",
+            "version": "v3.81.0"
+        },
+        "secrets_providers": {
+            "type": "service",
+            "state": {
+                "url": "https://api.pulumi.com",
+                "owner": "somaz94",
+                "project": "vpc-gce-gcs",
+                "stack": "backend-setup"
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:backend-setup::vpc-gce-gcs::pulumi:pulumi:Stack::vpc-gce-gcs-backend-setup",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "outputs": {
+                    "bucket_name": "gs://somaz-state"
+                },
+                "created": "2023-09-12T06:14:34.487897611Z",
+                "modified": "2023-09-12T06:14:34.487897611Z",
+                "sourcePosition": "project:///venv/lib/python3.8/site-packages/pulumi/runtime/stack.py#137"
+            },
+            {
+                "urn": "urn:pulumi:backend-setup::vpc-gce-gcs::pulumi:providers:gcp::default_6_65_0",
+                "custom": true,
+                "id": "faf2f83a-261a-4b73-9194-e76c2bf36300",
+                "type": "pulumi:providers:gcp",
+                "inputs": {
+                    "project": "somaz",
+                    "version": "6.65.0"
+                },
+                "outputs": {
+                    "project": "somaz",
+                    "version": "6.65.0"
+                },
+                "created": "2023-09-12T06:14:36.098096528Z",
+                "modified": "2023-09-12T06:14:36.098096528Z"
+            },
+            {
+                "urn": "urn:pulumi:backend-setup::vpc-gce-gcs::gcp:storage/bucket:Bucket::somaz-state-resource",
+                "custom": true,
+                "id": "somaz-state",
+                "type": "gcp:storage/bucket:Bucket",
+                "inputs": {
+                    "__defaults": [
+                        "forceDestroy",
+                        "storageClass"
+                    ],
+                    "forceDestroy": false,
+                    "location": "asia-northeast3",
+                    "name": "somaz-state",
+                    "storageClass": "STANDARD",
+                    "uniformBucketLevelAccess": true,
+                    "versioning": {
+                        "__defaults": [],
+                        "enabled": true
+                    }
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"read\":240000000000,\"update\":240000000000}}",
+                    "autoclass": null,
+                    "cors": [],
+                    "customPlacementConfig": null,
+                    "defaultEventBasedHold": false,
+                    "encryption": null,
+                    "forceDestroy": false,
+                    "id": "somaz-state",
+                    "labels": {},
+                    "lifecycleRules": [],
+                    "location": "ASIA-NORTHEAST3",
+                    "logging": null,
+                    "name": "somaz-state",
+                    "project": "somaz",
+                    "publicAccessPrevention": "inherited",
+                    "requesterPays": false,
+                    "retentionPolicy": null,
+                    "selfLink": "https://www.googleapis.com/storage/v1/b/somaz-state",
+                    "storageClass": "STANDARD",
+                    "uniformBucketLevelAccess": true,
+                    "url": "gs://somaz-state",
+                    "versioning": {
+                        "enabled": true
+                    },
+                    "website": null
+                },
+                "parent": "urn:pulumi:backend-setup::vpc-gce-gcs::pulumi:pulumi:Stack::vpc-gce-gcs-backend-setup",
+                "provider": "urn:pulumi:backend-setup::vpc-gce-gcs::pulumi:providers:gcp::default_6_65_0::faf2f83a-261a-4b73-9194-e76c2bf36300",
+                "propertyDependencies": {
+                    "location": null,
+                    "name": null,
+                    "uniformBucketLevelAccess": null,
+                    "versioning": null
+                },
+                "created": "2023-09-12T06:14:37.919830974Z",
+                "modified": "2023-09-12T06:14:37.919830974Z",
+                "sourcePosition": "project:///venv/lib/python3.8/site-packages/pulumi_gcp/storage/bucket.py#951"
+            }
+        ]
+    }
+}
