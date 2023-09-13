@@ -1,0 +1,6 @@
+name: secret-manager
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Create Secret Manager
