@@ -1,0 +1,6 @@
+name: shared-vpc
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Create Shared VPC and Private Service Access

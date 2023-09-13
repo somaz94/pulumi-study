@@ -1,0 +1,6 @@
+config:
+  gcp:project: mgmt-2023
+  host_project: mgmt-2023
+  service_projects: 
+    - dev-dsp-1
+    - qa-dsp
