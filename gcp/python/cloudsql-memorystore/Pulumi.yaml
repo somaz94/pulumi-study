@@ -1,0 +1,6 @@
+name: cloudsql-memorystore
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Create Cloud SQL and MemoryStore(Redis)

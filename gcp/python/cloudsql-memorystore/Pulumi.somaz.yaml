@@ -1,0 +1,8 @@
+# Pulumi.<stack>.yaml
+config:
+  cloudsql-memorystore:db_admin_password:
+    secure: AAABAH6WQsT1IhWZtBtUrbnUgfVZ1/GFE1JgPIGFY7DoFcGjVQkPwIB7
+  cloudsql-memorystore:db_admin_user:
+    secure: AAABAKwhtRftJvWW+01OkZGovcl/ot+6c5lnX0wRpS8AUsFQ8A==
+  cloudsql-memorystore:host_project: somaz
+  gcp:project: dev-somaz
