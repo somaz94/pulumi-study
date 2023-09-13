@@ -1,9 +1,6 @@
-# Pulumi.<stack>.yaml
 config:
   gcp:project: somaz
   host_project: somaz
   service_projects: 
     - dev-somaz
     - qa-somaz
-  private_service_ip: 10.1.48.0
-  private_service_prefix: 20

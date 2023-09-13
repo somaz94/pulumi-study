@@ -19,14 +19,14 @@ def create_vpc():
     )
 
     # Create a Subnet within the VPC
-    subnet = compute.Subnetwork(resource_name(SUBNET_A),
+    subnet_a = compute.Subnetwork(resource_name(SUBNET_A),
         name=resource_name(SUBNET_A),
         network=vpc.self_link,
         ip_cidr_range="10.85.51.0/24",
         region=REGION,
         description=f"{resource_name(SUBNET_A)} network",
     )
-    subnet = compute.Subnetwork(resource_name(SUBNET_B),
+    subnet_b = compute.Subnetwork(resource_name(SUBNET_B),
         name=resource_name(SUBNET_B),
         network=vpc.self_link,
         ip_cidr_range="10.85.52.0/24",
@@ -34,7 +34,7 @@ def create_vpc():
         description=f"{resource_name(SUBNET_B)} network",
     )
 
-    return vpc, igw, subnet
+    return vpc, igw, subnet_a, subnet_b
 
 def create_shared_vpc_host_project(host_project_id):
     # Host 프로젝트를 Shared VPC로 설정
