@@ -1,0 +1,6 @@
+name: cloud-dns-cdn
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A Cloud CDN and Cloud DNS Resource
