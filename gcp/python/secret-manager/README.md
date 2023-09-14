@@ -3,6 +3,10 @@ Create and proceed with Secret Manager
 
 You can also create a Secret Config using the commands below.
 ```bash
+pulumi stack init <stack name> # Do it with the stack name you want.
+
+pulumi config set gcp:project <your gcp project id>
+
 pulumi config set --secret dev_db_password <YOUR_DB_PASSWORD>
 pulumi config set --secret dev_db_username <YOUR_DB_USER>
 
