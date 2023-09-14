@@ -1,6 +1,6 @@
 # vpc.py
 from pulumi_gcp import compute
-from config import NETWORK, REGION, SUBNET, IGW
+from config import NETWORK, REGION, SUBNET
 from utils import Utils
 
 class VPC:
@@ -14,10 +14,13 @@ class VPC:
             description=f"{Utils.resource_name(NETWORK)} network",
         )
 
-        # Create an Internet Gateway for the VPC
-        igw = compute.GlobalAddress(Utils.resource_name(IGW),
-            name=Utils.resource_name(IGW),
-            description=f"{Utils.resource_name(IGW)} network",
+        # Create internet Route
+        route = compute.Route(Utils.resource_name(f"{NETWORK}-rt"),
+            name=Utils.resource_name(f"{NETWORK}-rt"),
+            description="Routing Table to access the internet",
+            dest_range="0.0.0.0/0",
+            network=vpc.self_link,
+            next_hop_gateway="default-internet-gateway",
         )
 
         # Create a Subnet within the VPC
@@ -29,4 +32,4 @@ class VPC:
             description=f"{Utils.resource_name(SUBNET)} network",
         )
 
-        return vpc, igw, subnet
+        return vpc, route, subnet

@@ -8,7 +8,7 @@ from utils import Utils
 class ComputeEngine:
 
     @staticmethod
-    def create_instance(vpc_dependency, subnet_dependency, igw_dependency):
+    def create_instance(vpc_dependency, subnet_dependency):
         # Read the SSH public key from the file
         with open("/home/somaz/.ssh/id_rsa_somaz94.pub", "r") as f:
             ssh_key = f.read().strip()
@@ -49,7 +49,7 @@ class ComputeEngine:
             sudo apt-get install -y apache2
             """,
             tags=[Utils.resource_name("webserver"), Utils.resource_name("frontend")],
-            opts=pulumi.ResourceOptions(depends_on=[vpc_dependency, subnet_dependency, igw_dependency]),
+            opts=pulumi.ResourceOptions(depends_on=[vpc_dependency, subnet_dependency]),
         )
 
         # Allow SSH access to the instance
