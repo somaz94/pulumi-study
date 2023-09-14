@@ -1,5 +1,10 @@
 # utils.py
 from config import PREFIX
 
-def resource_name(base_name: str) -> str:
-    return f"{PREFIX}-{base_name}"
+class ResourceNamer:
+    def __init__(self, prefix: str = PREFIX):
+        self.prefix = prefix
+
+    def get_name(self, base_name: str) -> str:
+        return f"{self.prefix}-{base_name}"
+

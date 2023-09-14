@@ -2,35 +2,48 @@
 """A Google Cloud Python Pulumi program"""
 
 import pulumi
-from pulumi import Config  # Import Pulumi.<stack-name>.yaml config file
-from vpc import create_vpc
-from private_service_access import create_private_service_access
+from pulumi import Config
+from vpc import VPCManager, SharedVPCManager
+from private_service_access import PrivateServiceAccess
 
-# Import Pulumi.<stack-name>.yaml config file
-config = Config()
-host_project_id = config.require("host_project")
-service_project_ids = config.require_object("service_projects")
-private_service_ip = config.get("private_service_ip")  
-private_service_prefix = config.get_int("private_service_prefix") 
+class CloudInfrastructure:
+    def __init__(self):
+        self.gcp_config = Config("gcp")
+        self.project_id = self.gcp_config.require("project")
+
+        self.sharedvpc_config = Config("sharedvpc")
+        self.host_project_id = self.sharedvpc_config.require("host_project")
+        self.service_project_ids = self.sharedvpc_config.require_object("service_projects")
+
+        self.vpc_manager = VPCManager()
+        self.shared_vpc_manager = SharedVPCManager()
+
+    def deploy(self):
+        # Create VPC, and Subnet and etc..
+        vpc, subnet_a, subnet_b, cloud_router, cloud_nat, internet_route = self.vpc_manager.create_vpc()
+
+        # Create Shared VPC host project and attach service projects to the Shared VPC
+        shared_vpc_host_project = self.shared_vpc_manager.create_shared_vpc_host_project(self.host_project_id)
+        attached_service_projects = self.shared_vpc_manager.attach_service_projects_to_shared_vpc(self.host_project_id, self.service_project_ids)
+
+        # Create Private Service Access for the VPC
+        private_service = PrivateServiceAccess(vpc)
+        reserved_range, service_connection = private_service.create()
+
+        # Export some useful outputs
+        pulumi.export('vpc_name', vpc.name)
+        pulumi.export('subnet_a_name', subnet_a.name)
+        pulumi.export('subnet_b_name', subnet_b.name)
+        pulumi.export('cloud_router_name', cloud_router.name)  
+        pulumi.export('cloud_nat_name', cloud_nat.name)
+        pulumi.export('internet_route_name', internet_route.name)       
+        pulumi.export('shared_vpc_host_project_id', shared_vpc_host_project.id)
+        # Assuming there can be multiple service projects, you can export their names as a list:
+        pulumi.export('attached_service_project_ids', [proj.id for proj in attached_service_projects])
+        pulumi.export('reserved_range_name', reserved_range.id)
+        pulumi.export('service_connection_name', service_connection.id)
 
 
-# Create VPC, IGW, and Subnet
-vpc, igw, subnet_a, subnet_b = create_vpc()
-
-# Create Shared VPC host project and attach service projects to the Shared VPC
-shared_vpc_host_project = create_shared_vpc_host_project(host_project_id)
-attached_service_projects = attach_service_projects_to_shared_vpc(host_project_id, service_project_ids)
-
-# Create Private Service Access for the VPC
-reserved_range, service_connection = create_private_service_access(vpc, private_service_ip, private_service_prefix)
-
-# Export some useful outputs
-pulumi.export('vpc_name', vpc.name)
-pulumi.export('subnet_a_name', subnet_a.name)
-pulumi.export('subnet_b_name', subnet_b.name)
-pulumi.export('igw_name', igw.name)
-pulumi.export('shared_vpc_host_project_id', shared_vpc_host_project.id)
-# Assuming there can be multiple service projects, you can export their names as a list:
-pulumi.export('attached_service_project_ids', [proj.id for proj in attached_service_projects])
-pulumi.export('reserved_range_name', reserved_range.id)
-pulumi.export('service_connection_name', service_connection.id)
+# Deploy infrastructure
+infrastructure = CloudInfrastructure()
+infrastructure.deploy()
