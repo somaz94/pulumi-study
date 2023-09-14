@@ -1,7 +1,7 @@
 config:
   gcp:project: somaz
   secret-manager:dev_db_password:
-    secure: AAABAJeZwKjYKw2yRdnI9NBPEuFTfphNr6nNYsjvhoIe+UXLoyVVL767
+    secure: AAABAHY3TTrvyGm+1Ggn/2v+JDnF3u0rbBjxcgA+cU2PXksq+LumdqTl
   secret-manager:dev_db_secret: somaz-db-secret
   secret-manager:dev_db_username:
-    secure: AAABANUln3uu+R5dH94rG9LuLkaNp0Coep0zCtKYlMXGr4dGgQ==
+    secure: AAABACy43KaHclIhHTAijHG7gw8TYhNq78mzI2hHt/RRb9V6AQ==
