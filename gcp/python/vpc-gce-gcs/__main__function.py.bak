@@ -2,14 +2,14 @@
 """A Google Cloud Python Pulumi program"""
 
 import pulumi
-from compute_engine import ComputeEngine
-from vpc import VPC
+from vpc import create_vpc
+from compute_engine import create_compute_engine
 
 # Create VPC, IGW, and Subnet
-vpc, igw, subnet = VPC.create()
+vpc, igw, subnet = create_vpc()
 
 # Create a Compute Engine instance
-instance = ComputeEngine.create_instance(vpc, subnet, igw)
+instance = create_compute_engine(vpc, subnet, igw)
 
 # Optionally, export some useful outputs
 pulumi.export('instance_name', instance.name)

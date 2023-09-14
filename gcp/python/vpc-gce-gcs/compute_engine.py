@@ -1,63 +1,67 @@
+# compute_engine.py
 import pulumi
 from pulumi_gcp import compute
 from pulumi import Output
 from config import REGION
-from utils import resource_name
+from utils import Utils
 
-def create_compute_engine(vpc_dependency, subnet_dependency, igw_dependency):
-    # Read the SSH public key from the file
-    with open("/home/somaz/.ssh/id_rsa_somaz94.pub", "r") as f:
-        ssh_key = f.read().strip()
+class ComputeEngine:
 
-    # Fetch the latest image from the image family
-    image = compute.get_image(family="ubuntu-2004-lts", project="ubuntu-os-cloud")
+    @staticmethod
+    def create_instance(vpc_dependency, subnet_dependency, igw_dependency):
+        # Read the SSH public key from the file
+        with open("/home/somaz/.ssh/id_rsa_somaz94.pub", "r") as f:
+            ssh_key = f.read().strip()
 
-    # Create a reserved IP address
-    reserved_ip = compute.Address(resource_name("bastion-ip"),
-        name=resource_name("bastion-ip"),
-        region=REGION,
-    )
+        # Fetch the latest image from the image family
+        image = compute.get_image(family="ubuntu-2004-lts", project="ubuntu-os-cloud")
 
-    # Create a new Compute Engine instance
-    instance = compute.Instance(resource_name("instance"),
-        name=resource_name("instance"),
-        machine_type="e2-medium",
-        zone=f"{REGION}-a",
-        boot_disk=compute.InstanceBootDiskArgs(
-            initialize_params=compute.InstanceBootDiskInitializeParamsArgs(
-                image=Output.from_input(image.self_link)
+        # Create a reserved IP address
+        reserved_ip = compute.Address(Utils.resource_name("bastion-ip"),
+            name=Utils.resource_name("bastion-ip"),
+            region=REGION,
+        )
+
+        # Create a new Compute Engine instance
+        instance = compute.Instance(Utils.resource_name("instance"),
+            name=Utils.resource_name("instance"),
+            machine_type="e2-medium",
+            zone=f"{REGION}-a",
+            boot_disk=compute.InstanceBootDiskArgs(
+                initialize_params=compute.InstanceBootDiskInitializeParamsArgs(
+                    image=Output.from_input(image.self_link)
+                ),
             ),
-        ),
-        network_interfaces=[compute.InstanceNetworkInterfaceArgs(
-            network=vpc_dependency.self_link,
-            subnetwork=subnet_dependency.self_link, 
-            access_configs=[compute.InstanceNetworkInterfaceAccessConfigArgs(
-                nat_ip=reserved_ip.address,
-                network_tier="",
+            network_interfaces=[compute.InstanceNetworkInterfaceArgs(
+                network=vpc_dependency.self_link,
+                subnetwork=subnet_dependency.self_link, 
+                access_configs=[compute.InstanceNetworkInterfaceAccessConfigArgs(
+                    nat_ip=reserved_ip.address,
+                    network_tier="",
+                )],
             )],
-        )],
-        metadata={
-            "ssh-keys": f"somaz:{ssh_key}"
-        },
-        metadata_startup_script="""
-        #!/bin/bash
-        sudo apt-get update
-        sudo apt-get install -y apache2
-        """,
-        tags=[resource_name("webserver"), resource_name("frontend")],
-        opts=pulumi.ResourceOptions(depends_on=[vpc_dependency, subnet_dependency, igw_dependency]),
-    )
+            metadata={
+                "ssh-keys": f"somaz:{ssh_key}"
+            },
+            metadata_startup_script="""
+            #!/bin/bash
+            sudo apt-get update
+            sudo apt-get install -y apache2
+            """,
+            tags=[Utils.resource_name("webserver"), Utils.resource_name("frontend")],
+            opts=pulumi.ResourceOptions(depends_on=[vpc_dependency, subnet_dependency, igw_dependency]),
+        )
 
-    # Allow SSH access to the instance
-    ssh_firewall = compute.Firewall(resource_name("allow-ssh"),
-        name=resource_name("allow-ssh"),
-        network=vpc_dependency.self_link,
-        allows=[compute.FirewallAllowArgs(
-            protocol="tcp",
-            ports=["22"],
-        )],
-        source_ranges=["0.0.0.0/0"],
-        target_tags=[resource_name("webserver")],
-    )
+        # Allow SSH access to the instance
+        ssh_firewall = compute.Firewall(Utils.resource_name("allow-ssh"),
+            name=Utils.resource_name("allow-ssh"),
+            network=vpc_dependency.self_link,
+            allows=[compute.FirewallAllowArgs(
+                protocol="tcp",
+                ports=["22"],
+            )],
+            source_ranges=["0.0.0.0/0"],
+            target_tags=[Utils.resource_name("webserver")],
+        )
 
-    return instance
+        return instance

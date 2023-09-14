@@ -1,6 +1,0 @@
-config:
-  gcp:project: somaz
-  host_project: somaz
-  service_projects: 
-    - dev-somaz
-    - qa-somaz
