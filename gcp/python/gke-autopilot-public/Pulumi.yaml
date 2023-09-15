@@ -1,0 +1,6 @@
+name: gke-autopilot-public
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Create GKE autopilot mode Public
