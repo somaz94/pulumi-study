@@ -1,0 +1,6 @@
+name: cloud-armor
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A Cloud Armor Resource
