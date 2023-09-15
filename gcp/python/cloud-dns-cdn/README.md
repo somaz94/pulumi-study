@@ -21,7 +21,7 @@ pulumi:pulumi:Stack (cloud-dns-cdn-somaz):
 ```
 
 To resolve this, verify domain ownership in the Google Search Console.
-![Verify domain ownership](https://search.google.com/search-console/welcome?new_domain_name=web.gcp.somaz.link)
+- [Verify domain ownership](https://search.google.com/search-console/welcome?new_domain_name=web.gcp.somaz.link)
 
 Alternatively, if you do not own the domain, you may need to reach out to the current owner and request them to create the bucket for you.
 
