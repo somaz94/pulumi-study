@@ -1,15 +1,16 @@
 ## Advance preparation
 Create GKE Autopilot Public Resource
 
-Sets the variable.
+Setting Up GKE Autopilot Public Resource.
+
+Before starting, ensure you set the necessary variables:
 ```bash
 pulumi config set gcp:project <your gcp project id>
 pulumi config set --plaintext host_project somaz
 ```
 
 ## Preparation when creating a GKE cluster
-The current architecture is configured using a shared VPC from somaz (Host Project).
-Therefore, service projects using shared VPCs must set up IAM before creating a GKE cluster with Pulumi.
+This configuration relies on a shared VPC from somaz (the Host Project). If you're utilizing a service project with shared VPCs, set up IAM before proceeding with the GKE cluster creation using Pulumi.
 
 Host Project
 - somaz
@@ -17,7 +18,9 @@ Service Project
 - dev-somaz
 
 ### Sets the IAM
-It is written by the Service Project based on dev-somaz. The rest of the Service Project is the same.
+These instructions are written for the Service Project dev-somaz. Other Service Projects will follow similar steps.
+
+Identify the service accounts:
 - Google API ServiceAccount: <project-number>@cloudservices.gserviceaccount.com
 - GKE API ServiceAccount: service-<project-number>@container-engine-robot.iam.gserviceaccount.com
 ```bash
@@ -32,7 +35,9 @@ $ echo $GCP_API_SA
 <project-id>@cloudservices.gserviceaccount.com
 ```
 
-#### Enable GKE API in projects
+### Enable GKE API in projects
+
+Activate the GKE API:
 ```bash
 gcloud services enable container.googleapis.com
 
@@ -41,9 +46,9 @@ gcloud services list --enabled |grep Kubernetes
 container.googleapis.com             Kubernetes Engine API
 ```
 
-#### IAM Settings
-- Grant the roles/container.serviceAgent permission to the GKE API service account of the Host Project and the Google API service account GKE API of the Service Project (Granted in the Host Project).
-- Grant the roles/editor permission to the GKE API service account of the Service Project (Granted in the Service Project).
-- Grant the roles/compute.networkUser permission to the GKE API service account and the Google API service account of the Service Project (Granted in the Host Project).
-- Grant user permissions to the relevant Subnet in the MGMT shared VPC (optional). You can grant roles/compute.networkUser permission for each subnet.
-- Grant the roles/compute.networkAdmin, roles/compute.viewer, and roles/editor permissions to the GKE API service account and the Google API service account of the Service Project (Granted in the Host Project).
+### IAM Settings
+- Grant the roles/container.serviceAgent permission to both the GKE API service account of the Host Project and the Google API service account GKE API of the Service Project (Permissions set in the Host Project).
+- Assign the roles/editor role to the GKE API service account in the Service Project.
+- Give the roles/compute.networkUser role to both the GKE API service account and the Google API service account in the Service Project (Permissions set in the Host Project).
+- Optionally, for the relevant Subnet in the MGMT shared VPC, provide user permissions. For individual subnets, the roles/compute.networkUser can be granted.
+- Grant the roles/compute.networkAdmin, roles/compute.viewer, and roles/editor roles to both the GKE API service account and the Google API service account in the Service Project (Permissions set in the Host Project).
