@@ -1,4 +1,4 @@
-## Preparation in advance
+## Advance preparation
 Create and proceed with Shared VPC & Private Service Accessr
 
 ```bash

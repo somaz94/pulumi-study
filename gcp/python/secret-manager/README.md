@@ -1,4 +1,4 @@
-## Preparation in advance
+## Advance preparation
 Create and proceed with Secret Manager
 
 You can also create a Secret Config using the commands below.

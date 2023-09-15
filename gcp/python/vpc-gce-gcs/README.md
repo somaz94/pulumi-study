@@ -1,4 +1,4 @@
-## Preparation in advance
+## Advance preparation
 The vpc-gce-gcs project has two stacks: backend-setup and main-infrastructure.
 
 ## backend-setup

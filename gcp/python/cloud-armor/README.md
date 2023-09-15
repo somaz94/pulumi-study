@@ -1,18 +1,17 @@
-## descriptions
-There are a total of three methods for creating cloud aromor rules. 
+## Overview
+
+Three methods exist for creating Cloud Armor rules:
+
 - ip_allow_standard_policy
 - ip_allow_policy
 - region_block_policy
 
-Policy with standard was created in Basic mode.
-I created the rest in advanced mode.
+The policy with "standard" was created in Basic mode, while the others were crafted in Advanced mode.
 
-- Basic mode
-Basic mode allows you to quickly create rules only with the IP address or range of blocked and allowed lists.
+### Basic Mode
+In Basic mode, you can swiftly create rules using only IP addresses or ranges for both blocked and allowed lists.
 
-- Advanced mode
-Advanced mode allows you to specify custom match criteria such as source IP range, source region, and so on using Common Expression Language (CEL)
+### Advanced Mode
+Advanced mode offers flexibility in defining custom match criteria. You can specify parameters such as the source IP range, source region, and more using the Common Expression Language (CEL).
 
-You can use it according to the purpose.
-Policy types are all edge security policies.
-
+Choose the method that best aligns with your needs. All the policy types mentioned are edge security policies.

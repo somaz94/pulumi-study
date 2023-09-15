@@ -1,4 +1,4 @@
-## Preparation in advance
+## Advance preparation
 Create and proceed with Shared VPC and Private Service Access.
 
 You can also create a Secret Config using the commands below.

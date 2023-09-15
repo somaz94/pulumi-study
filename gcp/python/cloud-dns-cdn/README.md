@@ -1,4 +1,4 @@
-## Preparation in advance
+## Advance preparation
 Create Cloud DNS & Cloud CDN
 
 You can also create a Secret Config using the commands below.
@@ -25,9 +25,6 @@ Diagnostics:
 Delete Resource and Stack
 ```bash
 pulumi destroy
-
-
-
 ```
 
 ## Complete
