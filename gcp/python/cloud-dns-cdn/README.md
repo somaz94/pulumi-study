@@ -33,4 +33,5 @@ pulumi destroy
 
 ## Completion
 Upon successful setup, you should be able to view your configured resources:
+---
 ![web-somaz](https://github.com/somaz94/pulumi-study/assets/112675579/0378e4f4-85ee-4d0f-8de8-cd4c5770038f)
