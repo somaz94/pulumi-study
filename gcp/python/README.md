@@ -46,7 +46,3 @@ pulumi stack init <stack name>
 
 **Note**: Always ensure you are working in a virtual environment when running Pulumi Python projects to avoid any potential package conflicts.
 
-## Contributing
-
-Feel free to contribute to this collection of projects by submitting a pull request. Ensure you provide a detailed description of the changes you propose.
-
