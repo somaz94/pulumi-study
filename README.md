@@ -17,9 +17,9 @@ For macOS Users:
 brew install pulumi/tap/pulumi
 ```
 
+<br/>
 
-
-🌐 References & Resources
+## 🌐 References & Resources
 - Installation Guide: [Pulumi Install](https://www.pulumi.com/docs/install/)
 - Getting Started with GCP: [Pulumi get-started](https://www.pulumi.com/docs/clouds/gcp/get-started/)
 - Official GitHub Repository [Pulumi Github](https://github.com/pulumi)
