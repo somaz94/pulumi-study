@@ -4,6 +4,8 @@ The vpc-gce-gcs project consists of two primary stacks: backend-setup and main-i
 ## Prerequisites
 Ensure you have pulumi and gsutil installed and authenticated with the required cloud provider.
 
+<br/>
+
 ### 1. backend-setup Stack
 
 <br/>
@@ -57,7 +59,7 @@ Re-initialize the stack and protect your config/secrets:
 ```bash
 pulumi stack init backend-setup
 ```
-Follow the passphrase prompts.
+- Follow the passphrase prompts.
 
 Import the stack:
 ```bash
@@ -70,7 +72,7 @@ pulumi login --cloud-url https://api.pulumi.com
 pulumi stack rm --force backend-setup
 ```
 
----
+<br/>
 
 ### 2. main-infra Stack
 
@@ -87,7 +89,7 @@ Initialize the main-infra stack and protect your config/secrets:
 ```bash
 pulumi stack init main-infra
 ```
-Follow the passphrase prompts.
+- Follow the passphrase prompts.
 
 Select the main-infra stack:
 ```bash
@@ -108,7 +110,7 @@ Apply the changes:
 ```bash
 pulumi up
 ```
-Follow the passphrase prompts.
+- Follow the passphrase prompts.
 
 You can SSH into your created instance:
 
