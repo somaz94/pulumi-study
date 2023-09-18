@@ -1,116 +1,138 @@
-## Advance preparation
-The vpc-gce-gcs project has two stacks: backend-setup and main-infrastructure.
+# Pulumi VPC-GCE-GCS Project Setup Guide
+The vpc-gce-gcs project consists of two primary stacks: backend-setup and main-infra. This guide will walk you through the setup and management of these stacks.
 
-## backend-setup
+## Prerequisites
+Ensure you have pulumi and gsutil installed and authenticated with the required cloud provider.
 
+### 1. backend-setup Stack
+
+<br/>
+
+#### Initialization
+
+Configure your GCP project:
 ```bash
-pulumi config set gcp:project <your gcp project id>
-
-pulumi stack init backend-setup
-Created stack 'backend-setup'
-
-pulumi stack ls
-NAME            LAST UPDATE  RESOURCE COUNT  URL
-backend-setup*  n/a          n/a             https://app.pulumi.com/somaz94/vpc-gce-gcs/backend-setup
+pulumi config set gcp:project <YOUR_GCP_PROJECT_ID>
 ```
 
+Initialize the backend-setup stack:
 ```bash
-cat __main__.py
-# Create backend-bucket.py 
+pulumi stack init backend-setup
+```
+
+Check your stacks:
+```bash
+pulumi stack ls
+```
+
+<br/>
+
+#### Set Up the Backend
+
+Use this Python code in __main__.py to create a backend bucket:
+```bash
 import pulumi
 from pulumi_gcp import storage
-
 from bucket_backend import create_backend_bucket
 
 # Call the function
 create_backend_bucket()
+```
 
-# apply
+Apply the changes:
+```bash
 pulumi up
 ```
 
-Pulumi backend has now been changed from Pulumi cloud to gcs bucket.
-__main__.In py, the bucket generation code is annotated.
+<br/>
+
+#### Migrate Backend from Pulumi Cloud to GCS Bucket
+
+Change Pulumi backend to the GCS bucket:
 ```bash
 pulumi login gs://somaz-state
-Logged in to AD01769994 as somaz (gs://somaz-state)
 ```
 
+Re-initialize the stack and protect your config/secrets:
 ```bash
 pulumi stack init backend-setup
-Created stack 'backend-setup'
-Enter your passphrase to protect config/secrets:
-Re-enter your passphrase to confirm:
+```
+Follow the passphrase prompts.
 
-pulumi stack ls
-NAME                  LAST UPDATE  RESOURCE COUNT
-backend-setup         n/a          n/a
-
-pulumi stack select backend-setup
-
+Import the stack:
+```bash
 pulumi stack import --file=backend-setup.json
-Import complete.
 ```
 
-It now deletes the stack resources on the pulumi cloud.
+To delete the stack resources on Pulumi cloud, do the following:
 ```bash
 pulumi login --cloud-url https://api.pulumi.com
-pulumi stack rm --force
-This will permanently remove the 'backend-setup' stack!
-Please confirm that this is what you'd like to do by typing `backend-setup`: backend-setup
-Stack 'backend-setup' has been removed!
+pulumi stack rm --force backend-setup
 ```
 
-## main-infra
+---
 
-Log in to the gs bucket again.
+### 2. main-infra Stack
+
+<br/>
+
+#### Initialization
+
+Log in to the GCS bucket:
 ```bash
 pulumi login gs://somaz-state
+```
 
+Initialize the main-infra stack and protect your config/secrets:
+```bash
 pulumi stack init main-infra
-Created stack 'main-infra'
-Enter your passphrase to protect config/secrets:
-Re-enter your passphrase to confirm:
+```
+Follow the passphrase prompts.
 
+Select the main-infra stack:
+```bash
 pulumi stack select main-infra
 ```
 
-Sets the variable.
+Set the project variable:
 ```bash
-pulumi config set gcp:project <your gcp project id>
+pulumi config set gcp:project <YOUR_GCP_PROJECT_ID>
 ```
 
+<br/>
+
+#### Infrastructure Deployment
+
+Apply the changes:
+
 ```bash
-# apply
 pulumi up
-Enter your passphrase to unlock config/secrets
-    (set PULUMI_CONFIG_PASSPHRASE or PULUMI_CONFIG_PASSPHRASE_FILE to remember):
-Enter your passphrase to unlock config/secrets
-...
-Outputs:
-    igw_name            : "somaz-igw"
-    instance_external_ip: "34.64.93.60"
-    instance_name       : "somaz-instance"
-    subnet_name         : "somaz-subnet"
-    vpc_name            : "somaz-vpc"
-
-ssh -i ~/.ssh/id_rsa_somaz94 somaz@34.64.93.60
-
-somaz@somaz-instance:~$ dpkg -l |grep apache2
-iF  apache2                            2.4.41-4ubuntu3.14                amd64        Apache HTTP Server
-ii  apache2-bin                        2.4.41-4ubuntu3.14                amd64        Apache HTTP Server (modules and other binary files)
-ii  apache2-data                       2.4.41-4ubuntu3.14                all          Apache HTTP Server (common files)
-ii  apache2-utils                      2.4.41-4ubuntu3.14                amd64        Apache HTTP Server (utility programs for web servers)
 ```
+Follow the passphrase prompts.
+
+You can SSH into your created instance:
 
 ```bash
-# delete
-pulumi destrpy
+ssh -i ~/.ssh/id_rsa_somaz94 somaz@<INSTANCE_IP>
+```
+- For example: ssh -i ~/.ssh/id_rsa_somaz94 somaz@34.64.93.60
 
+<br/>
+
+#### Cleanup
+
+Delete the deployed resources:
+```bash
+pulumi destroy
+```
+
+Check and remove the stack:
+```bash
 pulumi stack ls
+pulumi stack rm main-infra --force
+```
 
-pulumi stack rm main-infra
-pulumi stack rm --force
-
+Finally, remove the GCS state:
+```bash
 gsutil rm -r gs://somaz-state/
 ```
