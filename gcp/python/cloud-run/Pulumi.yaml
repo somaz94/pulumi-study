@@ -1,0 +1,6 @@
+name: cloud-run
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A Cloud Run Resource

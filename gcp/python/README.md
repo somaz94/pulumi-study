@@ -22,9 +22,11 @@ This repository contains a collection of Pulumi projects written in Python that 
   
 - **service-account-workload-identity-federation**: A comprehensive project detailing the setup of service accounts, workload identities, and their federation.
   
-- **sharedvpc-ps**: Illustrates the setup and usage of Shared VPCs within GCP.
+- **sharedvpc-psa**: Illustrates the setup and usage of Shared VPCs and Private Service Access within GCP.
   
 - **vpc-gce-gcs**: A project demonstrating the integration between Virtual Private Cloud (VPC), Google Compute Engine (GCE), and Google Cloud Storage (GCS).
+
+- **cloud-run**: Demonstrates how to deploy a Docker container to Google Cloud Run using Pulumi and Python. This project focuses on leveraging Cloud Run's serverless capabilities to run containers without the overhead of infrastructure management.
 
 ## Getting Started
 
