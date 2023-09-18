@@ -15,6 +15,7 @@ class WorkloadIdentityFederation:
         )
 
         provider_id = "provider-github-action"
+        
         self.provider = iam.WorkloadIdentityPoolProvider(
             provider_id,
             workload_identity_pool_id=self.pool.workload_identity_pool_id,
