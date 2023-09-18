@@ -1,0 +1,6 @@
+name: artifact-registry
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A Artifact Resgistry Resource
