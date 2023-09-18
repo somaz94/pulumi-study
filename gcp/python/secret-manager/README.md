@@ -12,7 +12,7 @@ Begin by creating a new Pulumi stack for your project.
 ```bash
 pulumi stack init <stack name>
 ```
-Replace <STACK_NAME> with the desired name for your stack.
+- Replace <STACK_NAME> with the desired name for your stack.
 
 <br/>
 
@@ -22,7 +22,7 @@ Specify the GCP project ID where you intend to manage secrets.
 ```bash
 pulumi config set gcp:project <YOUR_GCP_PROJECT_ID>
 ```
-Replace <YOUR_GCP_PROJECT_ID> with your Google Cloud Project ID.
+- Replace <YOUR_GCP_PROJECT_ID> with your Google Cloud Project ID.
 
 <br/>
 
@@ -34,7 +34,7 @@ Provide the database credentials. These will be stored securely by Pulumi.
 pulumi config set --secret dev_db_password <YOUR_DB_PASSWORD>
 pulumi config set --secret dev_db_username <YOUR_DB_USER>
 ```
-Replace <YOUR_DB_PASSWORD> and <YOUR_DB_USER> with your actual database credentials.
+- Replace <YOUR_DB_PASSWORD> and <YOUR_DB_USER> with your actual database credentials.
 
 For demonstration purposes, using the following credentials:
 ```bash

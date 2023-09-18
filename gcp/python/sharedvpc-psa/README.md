@@ -12,7 +12,7 @@ Before you start, specify the GCP project ID you intend to work with.
 ```bash
 pulumi config set gcp:project <YOUR_GCP_PROJECT_ID>
 ```
-Replace <YOUR_GCP_PROJECT_ID> with your Google Cloud Project ID.
+- Replace <YOUR_GCP_PROJECT_ID> with your Google Cloud Project ID.
 
 <br/>
 
@@ -29,8 +29,8 @@ Create a new Pulumi stack specifically for Shared VPC and Private Service Access
 ```bash
 pulumi stack init sharedvpc-psa
 ```
-This will output details about the created stack, for example:
 
+This will output details about the created stack, for example:
 ```bash
 Created stack 'sharedvpc-psa'
 NAME            LAST UPDATE  RESOURCE COUNT  URL
@@ -45,7 +45,7 @@ Configure the necessary variables for the shared VPC.
 pulumi config set --plaintext host_project somaz
 pulumi config set --plaintext service_projects '["dev-somaz", "qa-somaz"]'
 ```
-Adjust somaz, dev-somaz, and qa-somaz to your specific project names if they are different.
+- Adjust somaz, dev-somaz, and qa-somaz to your specific project names if they are different.
 
 <br/>
 
