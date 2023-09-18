@@ -50,7 +50,3 @@ pulumi stack init <stack name>
 
 Feel free to contribute to this collection of projects by submitting a pull request. Ensure you provide a detailed description of the changes you propose.
 
-## License
-
-Please refer to the `LICENSE` file in the root directory for information on licensing.
-
