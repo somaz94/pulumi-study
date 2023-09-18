@@ -1,10 +1,9 @@
 # workload_identity_federation.py
 
-from pulumi import Output, ResourceOptions
 from pulumi_gcp import iam
 
 class WorkloadIdentityFederation:
-    def __init__(self, project, service_account_name):
+    def __init__(self, project):
         pool_id = "pool-github-action"
         
         self.pool = iam.WorkloadIdentityPool(

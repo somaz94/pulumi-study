@@ -14,7 +14,7 @@ service_account_name = "github-action"
 service_account = ServiceAccount(service_account_name, project)
 
 # Create Workload Identity Federation
-workload_identity = WorkloadIdentityFederation(project, service_account.account_id)
+workload_identity = WorkloadIdentityFederation(project)
 
 # Wait for the service account and workload identity to be created before setting IAM permissions
 service_account_email = service_account.account_id.apply(lambda id: f"{id}@{project}.iam.gserviceaccount.com")
