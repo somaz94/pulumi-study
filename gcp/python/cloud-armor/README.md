@@ -8,8 +8,12 @@ Three methods exist for creating Cloud Armor rules:
 
 The policy with "standard" was created in Basic mode, while the others were crafted in Advanced mode.
 
+<br/>
+
 ### Basic Mode
 In Basic mode, you can swiftly create rules using only IP addresses or ranges for both blocked and allowed lists.
+
+<br/>
 
 ### Advanced Mode
 Advanced mode offers flexibility in defining custom match criteria. You can specify parameters such as the source IP range, source region, and more using the Common Expression Language (CEL).

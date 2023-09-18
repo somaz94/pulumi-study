@@ -9,6 +9,9 @@ pulumi stack init <STACK_NAME>
 # Set your Google Cloud project.
 pulumi config set gcp:project <YOUR_GCP_PROJECT_ID>
 ```
+
+<br/>
+
 ### Handling Potential Errors
 Should you encounter the following error, it indicates a domain ownership issue:
 ```bash
@@ -25,11 +28,15 @@ To resolve this, verify domain ownership in the Google Search Console.
 
 Alternatively, if you do not own the domain, you may need to reach out to the current owner and request them to create the bucket for you.
 
+<br/>
+
 ### Cleanup
 If needed, you can remove resources and the associated stack using:
 ```bash
 pulumi destroy
 ```
+
+<br/>
 
 ## Completion
 Upon successful setup, you should be able to view your configured resources:<br/><br/>
