@@ -13,7 +13,7 @@ Begin by creating a new Pulumi stack for your project.
 pulumi stack init <stack name>
 ```
 Replace <STACK_NAME> with the desired name for your stack.
-
+<br/>
 
 ### 2. Set GCP Project
 
@@ -22,7 +22,7 @@ Specify the GCP project ID where you intend to manage secrets.
 pulumi config set gcp:project <YOUR_GCP_PROJECT_ID>
 ```
 Replace <YOUR_GCP_PROJECT_ID> with your Google Cloud Project ID.
-
+<br/>
 
 ### 3. Set Database Secrets
 
@@ -39,7 +39,7 @@ For demonstration purposes, using the following credentials:
 pulumi config set --secret dev_db_password somaz@2023
 pulumi config set --secret dev_db_username somaz
 ```
-
+<br/>
 
 ### 4. Set Additional Plaintext Configuration
 
@@ -47,7 +47,7 @@ If you need to set any plaintext configurations (not recommended for sensitive d
 ```bash
 pulumi config set --plaintext dev_db_secret somaz-db-secret
 ```
-
+<br/>
 
 ### 5. Verify Configuration
 To check your current configurations, use:
@@ -63,7 +63,7 @@ dev_db_password  [secret]
 dev_db_secret    somaz-db-secret
 dev_db_username  [secret]
 ```
-
+<br/>
 
 ### 6. Retrieve Secret Values
 If you need to retrieve the secret values, you can do so as follows:
@@ -71,7 +71,7 @@ If you need to retrieve the secret values, you can do so as follows:
 pulumi config get dev_db_password   # Outputs: somaz@2023
 pulumi config get dev_db_username   # Outputs: somaz
 ```
-
+<br/>
 
 ## Caution
 Always ensure that secrets are handled with care. Avoid exposing them in logs, repositories, or other insecure locations.
