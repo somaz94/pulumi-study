@@ -1,0 +1,6 @@
+name: service-account-workload-identity-federation
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A Service Account and Workload Identity Federation
