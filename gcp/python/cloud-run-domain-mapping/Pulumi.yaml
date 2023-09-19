@@ -1,0 +1,6 @@
+name: cloud-run-domain-mapping
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A Cloud Run and Domain Mapping

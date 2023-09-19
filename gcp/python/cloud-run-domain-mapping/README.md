@@ -1,15 +1,16 @@
-# Cloud Run Deployment with Pulumi
-This project demonstrates how to deploy a Docker container to Google Cloud Run using Pulumi.
+# Cloud Run Domain Mapping with Pulumi
+This project demonstrates how to map custom domains to services running on Google Cloud Run using Pulumi.
 
 <br/>
 
 ## Directory Structure
 - Pulumi.yaml: Pulumi project configuration file.
-- __main__.py: The primary execution file to kick off the deployment.
-- cloud_run.py: Contains the class and related logic for deploying the Cloud Run service.
-- config.py: Global configurations for the project (e.g., PREFIX, REGION).
+- __main__.py: The primary execution file to kick off the domain mapping.
+- cloud_run_domain.py: Contains the class and related logic for mapping the custom domain to the Cloud Run service.
+- config.py: Global configurations for the project (e.g., DOMAIN_NAME, DOMAIN_REGION).
 - utils.py: Utility functions and classes.
 - requirements.txt: List of required Python packages.
+- venv: Virtual environment for the project.
 
 <br/>
 
@@ -56,3 +57,4 @@ And to delete the stack:
 ```bash
 pulumi stack rm <STACK NAME>
 ```
+
