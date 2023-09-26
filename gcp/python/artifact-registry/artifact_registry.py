@@ -1,6 +1,5 @@
 # artifact_registry.py
 
-import pulumi
 from pulumi_gcp.artifactregistry import Repository
 from config import REGION, dev_repo, prod_repo
 from utils import Utils
