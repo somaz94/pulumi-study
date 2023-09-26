@@ -74,9 +74,3 @@ For detailed information and specific instructions about the `bigquery-to-google
 
 Feel free to contribute by submitting pull requests. Ensure that your code is well-commented and adheres to the project's coding standards.
 
-<br/>
-
-## License
-
-[MIT](LICENSE)
-
