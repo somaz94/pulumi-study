@@ -25,6 +25,7 @@ This repository contains various scripts and functions to facilitate data flow b
 ## Setup
 
 1. Install Python 3.x.
+
 2. Clone the repository:
     ```bash
     git clone <repository-url>
@@ -43,6 +44,21 @@ This repository contains various scripts and functions to facilitate data flow b
     ```
 
 5. Update the `config.py` with necessary parameters.
+
+6. Install the Pulumi CLI and log in:
+    ```bash
+    pulumi login
+    ```
+
+7. Initialize a new Pulumi stack for your project:
+    ```bash
+    pulumi stack init <stack name>
+    ```
+
+8. Set the GCP project for your Pulumi stack:
+    ```bash
+    pulumi config set gcp:project <your-gcp-project-id>
+    ```
 
 <br/>
 
