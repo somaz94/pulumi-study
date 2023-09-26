@@ -27,7 +27,7 @@ class Function:
             service_account_email=SERVICE_ACCOUNT_EMAIL,
             environment_variables={
                 "BIGQUERY_TABLE": f"{pulumi.Config('gcp').get('project')}.mongodb_dataset.mongodb-internal-table",
-                "SHEET_ID": "115whxBxRBtWAb3a8jS5S3NN1wFMWRUBj5oqYFaXvB_M"
+                "SHEET_ID": "" # google sheet id 
             }
         )
 
