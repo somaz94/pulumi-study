@@ -1,0 +1,6 @@
+# config.py
+
+REGION = ""
+SERVICE_ACCOUNT_EMAIL = ""
+SHARED_VPC = ""
+SUBNET_SHARE = ""

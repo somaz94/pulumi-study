@@ -1,0 +1,6 @@
+name: bigdata-flow-functions
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A Google Cloud Bigquery and Dataflow and Cloud functions Resource
