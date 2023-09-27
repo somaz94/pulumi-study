@@ -1,5 +1,4 @@
 # cloud_armor.py
-import pulumi
 from pulumi_gcp import compute
 
 class CloudArmor:
@@ -10,7 +9,7 @@ class CloudArmor:
     def create_policy(self, base_name, description, default_rule_action, type, custom_rules):
         rules = []
 
-        for rule_name, rule_values in custom_rules.items():
+        for _, rule_values in custom_rules.items():
             if "inIpRange" in rule_values['expression']:
                 rules.append(
                     compute.SecurityPolicyRuleArgs(
