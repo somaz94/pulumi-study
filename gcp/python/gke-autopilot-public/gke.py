@@ -31,7 +31,7 @@ class GKECluster:
                                          },
                                          master_authorized_networks_config={
                                              "cidr_blocks": [{
-                                                 "cidr_block": "14.32.77.192/27",
+                                                 "cidr_block": "xx.xx.xx.xxx/27",   # Public ip
                                                  "display_name": "somaz public ip"
                                              }]
                                          })
