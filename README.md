@@ -27,3 +27,9 @@ brew install pulumi/tap/pulumi
 - Pulumi GCP SDK (Python): [Pulumi GCP SDK Python](https://github.com/pulumi/pulumi-gcp/tree/master/sdk/python)
 - API Documentation: [Pulumi GCP API Docs](https://www.pulumi.com/registry/packages/gcp/api-docs/)
   - Focus on Compute Engine: [Pulumi GCP API Docs Compute Engine](https://www.pulumi.com/registry/packages/gcp/api-docs/compute/instance/)
+
+<br/>
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
