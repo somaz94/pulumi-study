@@ -79,5 +79,11 @@ pulumi config get dev_db_username   # Outputs: somaz
 
 <br/>
 
+# Reference
+- [gcp.secretmanager](https://www.pulumi.com/registry/packages/gcp/api-docs/secretmanager/#gcp-secretmanager)
+
+<br/>
+
 ## Caution
 Always ensure that secrets are handled with care. Avoid exposing them in logs, repositories, or other insecure locations.
+

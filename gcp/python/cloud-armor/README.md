@@ -19,3 +19,8 @@ In Basic mode, you can swiftly create rules using only IP addresses or ranges fo
 Advanced mode offers flexibility in defining custom match criteria. You can specify parameters such as the source IP range, source region, and more using the Common Expression Language (CEL).
 
 Choose the method that best aligns with your needs. All the policy types mentioned are edge security policies.
+
+<br/>
+
+# Reference
+- [gcp.compute](https://www.pulumi.com/registry/packages/gcp/api-docs/compute/#gcp-compute)

@@ -2,6 +2,8 @@
 
 This repository contains a collection of Pulumi projects written in Python that aim to demonstrate various Google Cloud Platform (GCP) capabilities.
 
+<br/>
+
 ## Projects
 
 - **artifact-registry**: Demonstrates how to set up and manage an Artifact Registry.  
@@ -19,6 +21,8 @@ This repository contains a collection of Pulumi projects written in Python that 
 - **cloud-run-domain-mapping**: Demonstrates how to map custom domains to services running on Google Cloud Run using Pulumi and Python.
 - **bigdata-flow-functions**: Contains various scripts and functions to facilitate data flow between BigData platforms and tools such as MongoDB, BigQuery, and Google Sheets on Google Cloud Platform (GCP).
 
+<br/>
+
 ## Getting Started
 
 To work on any of the above projects:
@@ -31,11 +35,21 @@ pulumi stack init <stack name>
 3. Install the required Python dependencies using `pip install -r requirements.txt`.
 4. Follow the specific README instructions (if available) within the chosen directory.
 
+<br/>
+
 ## Prerequisites
 
 - [Pulumi CLI](https://www.pulumi.com/docs/get-started/install/)
 - Python 3.6 or later
 - An active Google Cloud Platform (GCP) account
+
+<br/>
+
+# Reference
+
+[pulumi api docs](https://www.pulumi.com/registry/packages/gcp/api-docs)
+
+<br/>
 
 **Note**: Always ensure you are working in a virtual environment when running Pulumi Python projects to avoid any potential package conflicts.
 

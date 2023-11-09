@@ -74,3 +74,10 @@ For detailed information and specific instructions about the `bigquery-to-google
 
 Feel free to contribute by submitting pull requests. Ensure that your code is well-commented and adheres to the project's coding standards.
 
+<br/>
+
+# Reference
+- [gcp.bigquery](https://www.pulumi.com/registry/packages/gcp/api-docs/bigquery/#gcp-bigquery)
+- [gcp.storage](https://www.pulumi.com/registry/packages/gcp/api-docs/storage/#gcp-storage)
+- [gcp.cloudfunctions](https://www.pulumi.com/registry/packages/gcp/api-docs/cloudfunctions/)
+- [gcp.cloudscheduler](https://www.pulumi.com/registry/packages/gcp/api-docs/cloudscheduler/#gcp-cloudscheduler)

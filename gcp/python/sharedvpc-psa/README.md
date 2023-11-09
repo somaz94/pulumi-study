@@ -54,5 +54,11 @@ You've now configured the settings required for creating a Shared VPC and Privat
 
 <br/>
 
+# Reference
+- [gcp.compute](https://www.pulumi.com/registry/packages/gcp/api-docs/compute/#gcp-compute)
+- [gcp.servicenetworking](https://www.pulumi.com/registry/packages/gcp/api-docs/servicenetworking/#gcp-servicenetworking)
+
+<br/>
+
 ## Caution
 Always double-check configurations and ensure you're not unintentionally exposing sensitive information. Remember to adhere to the best practices when working with shared resources and service access on GCP.

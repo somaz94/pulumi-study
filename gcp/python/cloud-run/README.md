@@ -56,3 +56,8 @@ And to delete the stack:
 ```bash
 pulumi stack rm <STACK NAME>
 ```
+
+<br/>
+
+# Reference
+- [gcp.cloudrun](https://www.pulumi.com/registry/packages/gcp/api-docs/cloudrun/#gcp-cloudrun)

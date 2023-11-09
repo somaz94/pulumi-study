@@ -44,3 +44,9 @@ somaz@2023
 pulumi config get db_admin_user
 somaz
 ```
+
+<br/>
+
+# Reference
+- [gcp.sql](https://www.pulumi.com/registry/packages/gcp/api-docs/sql/#gcp-sql)
+- [gcp.redis](https://www.pulumi.com/registry/packages/gcp/api-docs/sql/#gcp-sql)

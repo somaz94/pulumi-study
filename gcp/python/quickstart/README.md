@@ -60,3 +60,8 @@ pulumi-gcp>=6.0.0,<7.0.0
 ```
 
 index.html: This might be a placeholder or a sample HTML file. Ensure to review and modify it as per your project's needs.
+
+<br/>
+
+# Reference
+- [Get started with Pulumi & Google Cloud](https://www.pulumi.com/docs/clouds/gcp/get-started/#get-started-with-pulumi-google-cloud)

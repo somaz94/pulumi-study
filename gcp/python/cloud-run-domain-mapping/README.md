@@ -58,3 +58,8 @@ And to delete the stack:
 pulumi stack rm <STACK NAME>
 ```
 
+<br/>
+
+# Reference
+- [gcp.cloudrun](https://www.pulumi.com/registry/packages/gcp/api-docs/cloudrun/#gcp-cloudrun)
+- [gcp.dns](https://www.pulumi.com/registry/packages/gcp/api-docs/dns/)

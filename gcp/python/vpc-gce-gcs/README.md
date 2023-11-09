@@ -138,3 +138,9 @@ Finally, remove the GCS state:
 ```bash
 gsutil rm -r gs://somaz-state/
 ```
+
+<br/>
+
+# Reference
+- [gcp.compute](https://www.pulumi.com/registry/packages/gcp/api-docs/compute/#gcp-compute)
+- [gcp.storage](https://www.pulumi.com/registry/packages/gcp/api-docs/storage/#gcp-storage)

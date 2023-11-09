@@ -25,4 +25,4 @@ This project contains Pulumi code for setting up Artifact Registries on Google C
 <br/>
 
 # Reference
-[gcp.artifactregistry](https://www.pulumi.com/registry/packages/gcp/api-docs/artifactregistry/#gcp-artifactregistry)
+- [gcp.artifactregistry](https://www.pulumi.com/registry/packages/gcp/api-docs/artifactregistry/#gcp-artifactregistry)
