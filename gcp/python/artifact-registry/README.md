@@ -22,3 +22,7 @@ This project contains Pulumi code for setting up Artifact Registries on Google C
 2. Set GCP configuration: pulumi config set gcp:project [YOUR_GCP_PROJECT_ID]
 3. Deploy the Pulumi stack: pulumi up
 
+<br/>
+
+# Reference
+[gcp.artifactregistry](https://www.pulumi.com/registry/packages/gcp/api-docs/artifactregistry/#gcp-artifactregistry)
