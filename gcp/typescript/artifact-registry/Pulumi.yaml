@@ -1,0 +1,3 @@
+name: artifact-registry
+runtime: nodejs
+description: A Artifact Resgistry Resource
