@@ -19,24 +19,24 @@ This project contains Pulumi code for setting up Google Cloud Platform (GCP) Art
 
 ## Usage
 1. **Initialize a new Pulumi stack:**
-   ```bash
-   pulumi stack init [STACK_NAME]
-   ```
+    ```bash
+    pulumi stack init [STACK_NAME]
+    ```
 
 2. **Set GCP configuration:**
-   ```bash
-   pulumi config set gcp:project [YOUR_GCP_PROJECT_ID]
-   ```
+    ```bash
+    pulumi config set gcp:project [YOUR_GCP_PROJECT_ID]
+    ```
 
 3. **Install Node Modules**
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 
 4. **Deploy the Pulumi stack:**
-  ```bash
-  pulumi up
-  ```
+    ```bash
+    pulumi up
+    ```
 
 <br/>
 
