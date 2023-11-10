@@ -10,6 +10,7 @@
 // // Export the DNS name of the bucket
 // export const bucketName = bucket.url;
 
+//////////////////////////////////////////////////
 
 // Remove Suffix
 import * as pulumi from "@pulumi/pulumi";
@@ -47,3 +48,40 @@ export const bucketObjectEndpoint = bucketObjectUrl;
 
 // Export the bucket IAM binding ID
 export const bucketBindingName = bucketBinding.id;
+
+//////////////////////////////////////////////////
+
+// // import storage
+// import * as pulumi from "@pulumi/pulumi";
+// import { storage } from "@pulumi/gcp";
+
+// // Now you can use `Bucket`, `BucketObject`, and `BucketIAMBinding` directly without the `gcp` prefix.
+// const bucket = new storage.Bucket("somaz-bucket", {
+//     name: "somaz-bucket",
+//     location: "asia-northeast3",
+//     uniformBucketLevelAccess: true
+// });
+
+// const bucketObject = new storage.BucketObject("index.html", {
+//     name: "index.html",
+//     bucket: bucket.name,
+//     source: new pulumi.asset.FileAsset("index.html")
+// });
+
+// const bucketBinding = new storage.BucketIAMBinding("somaz-bucket-binding", {
+//     bucket: bucket.name,
+//     role: "roles/storage.objectViewer",
+//     members: ["allUsers"]
+// });
+
+// // Export just the bucket name
+// export const bucketName = bucket.name;
+
+// // Construct the object URL for HTTP access
+// const bucketObjectUrl = pulumi.interpolate`https://storage.googleapis.com/${bucket.name}/${bucketObject.name}`;
+
+// // Export the object URL
+// export const bucketObjectEndpoint = bucketObjectUrl;
+
+// // Export the bucket IAM binding ID
+// export const bucketBindingName = bucketBinding.id;
