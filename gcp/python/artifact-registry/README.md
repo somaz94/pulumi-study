@@ -4,9 +4,9 @@ This project contains Pulumi code for setting up Artifact Registries on Google C
 <br/>
 
 ## Structure
-- config.py: Contains configuration details like prefix, region, and repository names.
-- utils.py: Utility class for generating resource names.
-- artifact_registry.py: Pulumi code for creating Artifact Registries on GCP.
+- `config.py`: Contains configuration details like prefix, region, and repository names.
+- `utils.py`: Utility class for generating resource names.
+- `artifact_registry.py`: Pulumi code for creating Artifact Registries on GCP.
 
 <br/>
 
