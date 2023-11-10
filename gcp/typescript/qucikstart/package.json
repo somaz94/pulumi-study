@@ -1,0 +1,13 @@
+{
+    "name": "qucikstart",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^16"
+    },
+    "dependencies": {
+        "@pulumi/gcp": "^6.0.0",
+        "@pulumi/pulumi": "^3.92.0",
+        "latest": "^0.2.0",
+        "lodash": "^4.17.21"
+    }
+}
