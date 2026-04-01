@@ -2,15 +2,15 @@
 import pulumi
 from pulumi_gcp import compute
 from pulumi import Output
-from config import REGION
+from config import REGION, SSH_USER, SSH_KEY_PATH
 from utils import Utils
 
 class ComputeEngine:
 
     @staticmethod
     def create_instance(vpc_dependency, subnet_dependency):
-        # Read the SSH public key from the file
-        with open("/home/somaz/.ssh/id_rsa_somaz94.pub", "r") as f:
+        # Read the SSH public key from the config path
+        with open(SSH_KEY_PATH, "r") as f:
             ssh_key = f.read().strip()
 
         # Fetch the latest image from the image family
@@ -41,7 +41,7 @@ class ComputeEngine:
                 )],
             )],
             metadata={
-                "ssh-keys": f"somaz:{ssh_key}"
+                "ssh-keys": f"{SSH_USER}:{ssh_key}"
             },
             metadata_startup_script="""
             #!/bin/bash

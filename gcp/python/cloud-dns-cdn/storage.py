@@ -1,4 +1,5 @@
 from pulumi_gcp import storage
+from config import WEB_DOMAIN
 from utils import Utils
 import pulumi
 
@@ -7,7 +8,7 @@ class Storage:
     @staticmethod
     def create_bucket(dependencies=[]):
         return storage.Bucket(Utils.resource_name('bucket'),
-            name='web.gcp.somaz.link',
+            name=WEB_DOMAIN,
             location='ASIA-NORTHEAST3',
             uniform_bucket_level_access=True,  # Enable uniform bucket-level access
             # versioning=storage.BucketVersioningArgs(enabled=True),  # Enable bucket versioning

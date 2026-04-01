@@ -2,7 +2,7 @@
 import pulumi
 import pulumi_gcp as gcp
 from config import REGION, NETWORK
-from utils import resource_name
+from utils import Utils
 
 class MySQLManager:
     def __init__(self):
@@ -17,7 +17,7 @@ class MySQLManager:
         self.project = gcp_config.require("project")
 
     def create_instance(self, instance_name):
-        instance_name_resource = resource_name(instance_name)
+        instance_name_resource = Utils.resource_name(instance_name)
 
         # Create a Google SQL Database Instance
         mysql_instance = gcp.sql.DatabaseInstance(

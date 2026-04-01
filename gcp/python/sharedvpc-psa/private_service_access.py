@@ -1,14 +1,13 @@
 import pulumi
 import pulumi_gcp as gcp
 from pulumi_gcp import servicenetworking 
-from utils import ResourceNamer
+from utils import Utils
 from config import PRIVATE_SERVICE_IP, PRIVATE_SERVICE_PREFIX
 
 class PrivateServiceAccess:
     
     def __init__(self, vpc):
         self.vpc = vpc
-        self.resource_namer = ResourceNamer()
 
     def create(self):
         self.reserved_range = self._create_reserved_range()
@@ -18,8 +17,8 @@ class PrivateServiceAccess:
     def _create_reserved_range(self):
         # Create a reserved IP range for Private Service Access
         return gcp.compute.GlobalAddress(
-            self.resource_namer.get_name("private-service-range"),
-            name=self.resource_namer.get_name("private-service-range"),
+            Utils.resource_name("private-service-range"),
+            name=Utils.resource_name("private-service-range"),
             address_type="INTERNAL",
             purpose="VPC_PEERING",
             address=PRIVATE_SERVICE_IP,
@@ -34,7 +33,7 @@ class PrivateServiceAccess:
         def create_service_connection(args):
             vpc_name, range_name = args
             return servicenetworking.Connection(
-                self.resource_namer.get_name("private-service-connection"),
+                Utils.resource_name("private-service-connection"),
                 network=vpc_name,
                 reserved_peering_ranges=[range_name],
                 service="servicenetworking.googleapis.com",

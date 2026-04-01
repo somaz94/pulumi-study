@@ -20,6 +20,17 @@ This repository contains a collection of Pulumi projects written in Python that 
 - **cloud-run**: Demonstrates how to deploy a Docker container to Google Cloud Run using Pulumi and Python. This project focuses on leveraging Cloud Run's serverless capabilities to run containers without the overhead of infrastructure management.
 - **cloud-run-domain-mapping**: Demonstrates how to map custom domains to services running on Google Cloud Run using Pulumi and Python.
 - **bigdata-flow-functions**: Contains various scripts and functions to facilitate data flow between BigData platforms and tools such as MongoDB, BigQuery, and Google Sheets on Google Cloud Platform (GCP).
+- **common**: Shared utility module (`utils.py`) defining the canonical `Utils.resource_name()` pattern used across all projects.
+
+<br/>
+
+## Project Convention
+
+All projects follow a consistent structure:
+
+- `config.py` — Project-specific constants (`PREFIX`, `REGION`, etc.). Sensitive values should use environment variables or `pulumi.Config`.
+- `utils.py` — Uses the standardized `Utils.resource_name()` static method for prefixed resource naming.
+- `__main__.py` — Pulumi program entry point.
 
 <br/>
 

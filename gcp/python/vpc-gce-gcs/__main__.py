@@ -17,12 +17,3 @@ pulumi.export('instance_external_ip', instance.network_interfaces[0].access_conf
 pulumi.export('vpc_name', vpc.name)
 pulumi.export('subnet_name', subnet.name)
 pulumi.export('route_name', route.name)
-
-# # Create backend-bucket.py 
-# import pulumi
-# from pulumi_gcp import storage
-
-# from bucket_backend import create_backend_bucket
-
-# # Call the function
-# create_backend_bucket()

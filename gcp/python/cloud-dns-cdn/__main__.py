@@ -8,7 +8,8 @@ from cdn import CDN
 managed_zone = CloudDNS.create_managed_zone()
 
 # SSL certificate
-domains = ['web.gcp.somaz.link']
+from config import WEB_DOMAIN
+domains = [WEB_DOMAIN]
 ssl_certificate = CDN.create_managed_ssl_certificate(domains)
 
 # Storage - Depends on DNS

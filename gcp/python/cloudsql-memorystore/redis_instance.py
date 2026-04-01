@@ -2,7 +2,7 @@
 import pulumi
 import pulumi_gcp as gcp
 from config import REGION, NETWORK
-from utils import resource_name
+from utils import Utils
 
 class RedisManager:
     def __init__(self):
@@ -18,7 +18,7 @@ class RedisManager:
         # Construct the fully-qualified authorized network string
         authorized_network = f"projects/{self.host_project}/global/networks/{NETWORK}"
 
-        redis_name = resource_name(instance_name)
+        redis_name = Utils.resource_name(instance_name)
 
         # Create a Google Cloud MemoryStore Redis instance
         redis_instance = gcp.redis.Instance(
